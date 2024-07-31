@@ -24,6 +24,7 @@ model Inventory {
   name        String
   description String
   cost        Int
+  billImageUrl String?
   userId      String? @db.ObjectId
   user        User?   @relation(fields: [userId], references: [id])
 

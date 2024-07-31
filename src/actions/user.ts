@@ -105,6 +105,7 @@ export const addUpdateInventory = async (formData: FormData, data: any) => {
   const name = formData.get("name") as string;
   const description = formData.get("description") as string;
   const getCost = formData.get("cost") as string;
+  const billImageUrl = formData.get("billImageUrl") as string;
   const cost = Number(getCost);
 
   const user = await db.user.findUnique({
@@ -120,11 +121,11 @@ export const addUpdateInventory = async (formData: FormData, data: any) => {
     if (data?.id) {
       inventory = await db.inventory.update({
         where: { id: data?.id },
-        data: { name, description, cost, userId: user?.id },
+        data: { name, description, cost,billImageUrl, userId: user?.id },
       });
     } else {
       inventory = await db.inventory.create({
-        data: { name, description, cost, userId: user?.id },
+        data: { name, description, cost,billImageUrl, userId: user?.id },
       });
     }
     if (!inventory) {

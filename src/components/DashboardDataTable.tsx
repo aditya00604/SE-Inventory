@@ -99,14 +99,18 @@ export const columns: ColumnDef<InventoryDataProps>[] = [
     header: () => <div className="text-right">Cost</div>,
     cell: ({ row }) => {
       const amount = parseFloat(row.getValue("cost"));
-
+      const billImageUrl = row.original.billImageUrl;
+      console.log(row.original);
       // Format the amount as a dollar amount
-      const formatted = new Intl.NumberFormat("en-US", {
+      const formatted = new Intl.NumberFormat("en-IN", {
         style: "currency",
-        currency: "USD",
+        currency: "INR",
       }).format(amount);
+    //   <a href={row.getValue('billImageUrl')} target="_blank" rel="noopener noreferrer">
+    //   {formatted}
+    // </a>;
 
-      return <div className="text-right font-medium">{formatted}</div>;
+      return <div className="text-right font-medium"><a href={billImageUrl as string} target="_blank" rel="noopener noreferrer">{formatted as React.ReactNode}</a></div>;
     },
   },
   {

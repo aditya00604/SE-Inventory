@@ -18,6 +18,7 @@ export type InventoryDataProps = {
   name: string;
   description: string;
   cost: number;
+  billImageUrl: string;
   lifeSpan: number;
   createdAt: Date;
   updatedAt: Date | null;

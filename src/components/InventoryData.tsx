@@ -60,6 +60,12 @@ const InventoryData = ({ title, data }: Props) => {
                 />
                 <FormInput
                   type="text"
+                  name="billImageUrl"
+                  label="Enter invoice link"
+                  defaultValue={data?.billImageUrl}
+                />
+                <FormInput
+                  type="text"
                   name="cost"
                   label="Enter Inventory Cost"
                   defaultValue={data?.cost}
