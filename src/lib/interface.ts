@@ -22,4 +22,4 @@ export type InventoryDataProps = {
   lifeSpan: number;
   createdAt: Date;
   updatedAt: Date | null;
-}[];
+};

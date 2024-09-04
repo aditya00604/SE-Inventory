@@ -26,7 +26,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { InventoryDataProps } from "@/lib/interface";
+
 import {
   Select,
   SelectContent,
@@ -47,6 +47,7 @@ import {
 import { signOut } from "next-auth/react";
 import InventoryData from "./InventoryData";
 import InventoryUpdate from "./InventoryUpdate";
+import { InventoryDataProps } from "@/lib/interface";
 
 export const columns: ColumnDef<InventoryDataProps>[] = [
   {
@@ -99,6 +100,7 @@ export const columns: ColumnDef<InventoryDataProps>[] = [
     header: () => <div className="text-right">Cost</div>,
     cell: ({ row }) => {
       const amount = parseFloat(row.getValue("cost"));
+
       const billImageUrl = row.original.billImageUrl;
       console.log(row.original);
       // Format the amount as a dollar amount
