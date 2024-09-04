@@ -38,9 +38,12 @@ const credentialsConfig = CredentialsProvider({
     } else return null;
   },
 });
-const config = {
+const config: NextAuthConfig = {
   providers: [Google, credentialsConfig],
   secret: process.env.SECRET,
-} satisfies NextAuthConfig;
+  // **Production:**
+ trustHost: true,
+
+};
 
 export const { handlers, auth, signIn, signOut } = NextAuth(config);
